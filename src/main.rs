@@ -1,6 +1,7 @@
 use std::env;
 
 mod day1;
+mod day2;
 
 
 fn main() {
@@ -8,4 +9,5 @@ fn main() {
   println!("Let's start Advent of Code 2023 !!!");
 
   day1::main();
+  day2::main();
 }
