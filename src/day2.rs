@@ -5,7 +5,7 @@ pub fn main() {
     let games = read_to_string("src/day2_input.txt")
         .unwrap()
         .lines()
-        .filter_map(Game::parseGame)
+        .filter_map(Game::parse_game)
         .collect::<Vec<Game>>();
 
     part1(&games);
@@ -19,11 +19,11 @@ struct Game {
 }
 
 impl Game {
-    fn parseGame(line: &str) -> Option<Game> {
+    fn parse_game(line: &str) -> Option<Game> {
         let (game_name, rounds_str) = line.split_once(": ")?;
         let id: usize = game_name.split_once(" ")?.1.parse().unwrap();
         let rounds = rounds_str.split("; ")
-            .filter_map(Round::parseRound)
+            .filter_map(Round::parse_round)
             .collect::<Vec<Round>>();
 
         Some(Game {
@@ -77,7 +77,7 @@ struct Round {
 }
 
 impl Round {
-    fn parseRound(round_str: &str) -> Option<Round> {
+    fn parse_round(round_str: &str) -> Option<Round> {
         let mut round = Round {
             blues: 0,
             greens: 0,
