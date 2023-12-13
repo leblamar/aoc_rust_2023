@@ -55,19 +55,16 @@ impl Almanac {
 
 #[derive(Debug)]
 struct Map {
-   name: String,
    converters: Vec<Converter>
 }
 
 impl Map {
     fn parse_map(lines: &[&str]) -> Option<Map> {
-        let (name, _) = lines[0].split_once(" ")?;
         let converters = lines[1..].iter()
             .filter_map(Converter::parse_converter)
             .collect::<Vec<Converter>>();
 
         Some(Map {
-            name: name.to_string(),
             converters
         })
     }
