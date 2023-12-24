@@ -162,7 +162,7 @@ impl Map {
 
         let area = segment_sum.abs() / 2;
 
-        (area * 2 - nb_points as i32) / 2 + 1
+        area - (nb_points as i32 / 2) + 1
     }
 }
 
